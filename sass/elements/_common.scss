@@ -1,0 +1,267 @@
+@import '../_mixins';
+
+.logo {
+	$icon-size: 64px;
+	width: 100%;
+	position: relative;
+	img {
+		position: absolute;
+		left: 50%;
+		width: $icon-size;
+		height: $icon-size;
+		margin-left: -$icon-size/2;
+	}
+	.title {
+		display: block;
+		color: $color-white-1;
+		width: 100%;
+		text-align: center;
+		padding-top: $icon-size + $default-margin;
+		font-size: 1.2rem;
+		letter-spacing: 0.05rem;
+	}
+	.subtitle {
+		display: block;
+		color: $color-white-2;
+		width: 100%;
+		text-align: center;
+		margin-top: $default-margin;
+		font-size: 1rem;
+	}
+}
+
+a {
+	text-decoration: none;
+	color: $color-gray
+}
+
+.active {
+	color: $color-primary;
+}
+
+.button {
+	color: $color-accent;
+	@include border-radius($default-margin/2);
+	border: 1px solid $color-accent;
+	background-color: transparent;
+	font-size: 1rem;
+	@include button-padding($default-margin);
+	text-transform: uppercase;
+}
+.button:hover {
+	background-color: $color-accent;
+	color: $color-light;
+}
+
+.not-display {
+	display: none;
+}
+
+.hidden {
+	visibility: hidden;
+}
+
+.block {
+	display: block;
+}
+
+.inline-block {
+	display: inline-block;
+}
+
+.header {
+	background-color: $color-primary;
+	@include box-shadow(0, 1px, 8px, 0, rgba(0,0,0,0.3));
+	color: $color-white-2;
+	overflow: auto;
+	padding: $default-margin * 2;
+	position: fixed;
+	width: 100vw;
+
+	.left {
+		float: left;
+		font-size: 1rem;
+		max-width: 70%;
+
+		.logo {
+			display: none;
+		}
+
+		.title {
+
+			.dropdown {
+				display: inline-block;
+				margin-left: $default-margin;
+				margin-right: $default-margin;
+				color: $color-white-1;
+				border-bottom: 1px solid $color-white-1;
+
+				i {
+					font-size: 1rem;
+					line-height: 1.2rem;
+					vertical-align: middle;
+					margin-left: $default-margin/2;
+				}
+			}
+		}
+
+		.stats {
+			margin-top: $default-margin;
+			color: $color-white-1;
+			overflow: auto;
+
+			.text {
+				color: $color-white-2;
+				margin-left: $default-margin/8;
+			}
+
+			.stat-unit {
+				margin-right: $default-margin;
+				float: left;
+			}
+		}
+	}
+
+	.right {
+		float: right;
+		margin-right: $default-margin*3;
+
+		.button {
+			border: 0px none;
+			color: $color-white-2;
+			padding: $default-margin;
+		}
+
+		.button:hover {
+			background-color: $color-white-4;
+		}
+
+		.add {
+			display: inline-block;
+			border-radius: 50%;
+			width: 1.2rem;
+			height: 1.2rem;
+
+			i {
+				font-size: 1.7rem;
+				line-height: 1rem;
+				vertical-align: middle;
+				margin-left: -0.22rem;
+			}
+
+			span {
+				line-height: 1rem;
+				vertical-align: middle;
+				display: none;
+				margin-left: $default-margin/2;
+			}
+		}
+
+		.menu {
+			display: inline-block;
+			border-radius: 50%;
+			width: 1.2rem;
+			height: 1.2rem;
+			background-color: transparent;
+
+			i {
+				margin-left: -0.22rem;
+				font-size: 1.7rem;
+				line-height: 1rem;
+				vertical-align: middle;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 20em) {
+	.header {
+		.left {
+			font-size: 0.9rem;
+			max-width: 68%;
+		}
+	}
+}
+
+@media screen and (min-width: 40.5em) {
+	.header {
+
+		.left {
+			font-size: 1.2rem;
+
+			.logo {
+				opacity: 0.65;
+				display: block;
+				$icon-size: 48px;
+				width: $icon-size;
+				height: $icon-size;
+				margin-right: $default-margin/2;
+				margin-left: $default-margin/2;
+				img {
+					position: relative;
+					width: $icon-size;
+					height: $icon-size;
+				}
+			}
+
+			.title {
+				margin-top: -$default-margin/4;
+			}
+
+
+			.stats {
+				margin-top: $default-margin/2;
+				color: $color-white-1;
+			}
+
+		}
+
+		.right {
+			.add {
+				border-radius: $default-margin;
+				width: auto;
+				height: 1.2rem;
+				background-color: $color-black-4;
+
+				i {
+					font-size: 1.3rem;
+					line-height: 1rem;
+					vertical-align: middle;
+					margin-left: 0;
+				}
+
+				span { 
+					display: inline;
+					margin-right: 0.25rem;
+				}
+			}
+
+			.menu {
+				margin-left: $default-margin/2;
+			}
+		}
+	}
+}
+
+.content {
+	background: url($line-url) repeat-y;
+	background-size: 3px 3px;
+	background-position: $default-margin*2 0;
+	padding-top: 100px;
+
+	.record {
+		height: 100px;
+		.pin {
+			display: block;
+			width: 32px;
+			height: 32px;
+
+			svg {
+				width: 24px;
+				height: 24px;
+				color: "#FFFFFF";
+				fill: "#FFFFFF";
+			}
+		}
+	}
+}

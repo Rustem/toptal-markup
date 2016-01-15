@@ -1,0 +1,29 @@
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	-o-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin box-shadow($x, $y, $radius, $spread, $color) {
+	-webkit-box-shadow: $x $y $radius $spread $color;
+	-moz-box-shadow: $x $y $radius $spread $color;
+	-ms-box-shadow: $x $y $radius $spread $color;
+	-o-box-shadow: $x $y $radius $spread $color;
+	box-shadow: $x $y $radius $spread $color;
+}
+
+@mixin button-padding($padding) {
+	padding-left: $padding*3;
+	padding-right: $padding*3;
+	padding-top: $padding;
+	padding-bottom: $padding;
+}
+
+@mixin logo($width, $height, $fill) {
+	content: '';
+	display: block;
+	width: $width;
+	height: $height;
+}

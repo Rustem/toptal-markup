@@ -1,0 +1,76 @@
+@import '../_mixins';
+
+.card {
+	background-color: $color-light;
+}
+
+
+.login-card {
+	$width: 100%;
+	$info-height: 100px;
+	$height: 100%;
+	width: $width;
+	height: 100vh;
+	color: $color-gray;
+
+	.card-info {
+		background-color: $color-primary;
+		@include box-shadow(0px, 0px, 8px, 0px, rgba(0,0,0,0.25));
+		padding: $default-margin*2;
+		z-index: 1;
+	}
+
+	.card-content {
+		position: relative;
+		padding: $default-margin * 2;
+		z-index: 0;
+
+		.header {
+			font-size: 1.2rem;
+			margin-top: $default-margin;
+		}
+
+		.data {
+			margin-top: $default-margin * 2;
+		}
+	}
+}
+
+@media screen and (min-width: 40.5em) {
+	.login-card {
+		$width: 600px;
+		$info-width: 200px;
+		$height: 240px;
+		height: 0;
+		width: $width;
+		min-height: $height;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		margin-left: -$width / 2;
+		margin-top: -$height / 2;
+		@include box-shadow(0px, 1px, 8px, 0px, rgba(0,0,0,0.5));
+		@include border-radius(8px);
+		overflow: hidden;
+
+		.card-info {
+			width: $info-width - $default-margin * 4;
+			min-height: $height;
+			float: left;
+			padding-top: $default-margin * 7;
+		}
+
+		.card-content {
+			width: $width - $info-width - $default-margin * 4;
+			min-height: $height - $default-margin * 4;
+			float: left;
+			padding: 0;
+			margin: $default-margin * 2;
+		}
+	}
+}
+
+.rounded {
+	@include border-radius(8px);
+	overflow: hidden;
+}

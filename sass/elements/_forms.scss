@@ -1,0 +1,108 @@
+.form-field {
+	$width: 100%;
+	width: $width;
+	margin: $default-margin/2 0 $default-margin/2 0;
+
+	label {
+		padding-right: $default-margin;
+		font-size: 1rem;
+		text-aligh: right;
+		width: $width;
+		display: block;
+	}
+
+	input[type=text],
+	input[type=email],
+	input[type=password] {
+		background-color: transparent;
+		border: 0px none;
+		border-bottom: 1px solid $color-accent;
+		margin: $default-margin 0 $default-margin 0;
+		-webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important; 
+		-webkit-focus-ring-color: rgba(255, 255, 255, 0) !important; 
+		padding-bottom: $default-margin/2;
+		outline: none !important;
+		color: $color-accent;
+		opacity: 0.5;
+		font-size: 1.4rem;
+		width: $width;
+	}
+
+	input:focus {
+		border-bottom: 2px solid $color-accent;
+		opacity: 1;
+		margin: $default-margin 0 ($default-margin - 1px) 0;
+	}
+}
+
+.error {
+	input[type=text],
+	input[type=email],
+	input[type=password] {
+		border-bottom: 1px solid $color-primary;
+	}
+
+	input:focus {
+		border-bottom: 2px solid $color-primary;
+	}
+}
+
+.error-popup {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	background-color: $color-dark-1;
+	color: $color-white-2;
+	padding: $default-margin $default-margin*2 $default-margin $default-margin*2;
+	@include box-shadow(0px, 1px, 4px, 0px, rgba(0,0,0,0.5));
+	vertical-align: middle;
+
+	div {
+		vertical-align: middle;
+		display: inline-block;
+	}
+
+	.text {
+		width: 84%;
+	}
+
+	.close {
+		text-transform: uppercase;
+		text-aligh: right;
+	}
+}
+
+.form-buttons {
+	margin-top: $default-margin * 2;
+	float: right;
+}
+
+@media screen and (min-width: 40.5em) {
+	.form-field {
+		$width: 100%;
+
+		label {
+			width: $width * 0.2;
+			display: inline-block;
+		}
+
+		input[type=text],
+		input[type=email],
+		input[type=password] {
+			width: $width * 0.75;
+		}
+	}
+
+	.form-buttons {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+	}
+
+	.error-popup {
+		left: -$default-margin * 2;
+		right: -$default-margin * 2;
+		top: -$default-margin * 2;
+	}
+}
