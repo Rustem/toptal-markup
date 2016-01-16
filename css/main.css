@@ -225,7 +225,7 @@ a {
     position: relative;
     padding: 16px;
     z-index: 0; }
-    .login-card .card-content .header {
+    .login-card .card-content .heading {
       font-size: 1.2rem;
       margin-top: 8px; }
     .login-card .card-content .data {
