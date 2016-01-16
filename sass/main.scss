@@ -6,7 +6,18 @@ html,
 body {
 	font: 16px $main-font;
 	font-size: 1rem;
-	background: $color-background;
+	background: url($line-url) repeat-y $color-background;
+	background-size: 4px 4px;
+	background-position: $default-margin*2 0;
+}
+
+@media screen and (min-width: 40.5em) {
+	html,
+	body {
+		background: url($line-url) repeat-y $color-background;
+		background-size: 4px 4px;
+		background-position: $default-margin*4 0;
+	}
 }
 
 @import 'elements/_common';

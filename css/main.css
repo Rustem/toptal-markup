@@ -9,8 +9,16 @@ html,
 body {
   font: 16px Helvetica, Arial, sans-serif;
   font-size: 1rem;
-  background: #545c64; }
+  background: url("../images/line.svg") repeat-y #545c64;
+  background-size: 4px 4px;
+  background-position: 16px 0; }
 
+@media screen and (min-width: 40.5em) {
+  html,
+  body {
+    background: url("../images/line.svg") repeat-y #545c64;
+    background-size: 4px 4px;
+    background-position: 32px 0; } }
 .logo {
   width: 100%;
   position: relative; }
@@ -86,7 +94,8 @@ a {
   overflow: auto;
   padding: 16px;
   position: fixed;
-  width: 100vw; }
+  width: 100vw;
+  z-index: 10; }
   .header .left {
     float: left;
     font-size: 1rem;
@@ -189,22 +198,246 @@ a {
   .header .right .menu {
     margin-left: 4px; } }
 .content {
-  background: url("../images/line.svg") repeat-y;
-  background-size: 3px 3px;
-  background-position: 16px 0;
-  padding-top: 100px; }
+  padding-top: 102px;
+  padding-bottom: 16px; }
   .content .record {
-    height: 100px; }
+    padding: 2px; }
     .content .record .pin {
-      display: block;
+      display: inline-block;
+      vertical-align: top;
       width: 32px;
-      height: 32px; }
+      height: 32px;
+      background-color: #545c64;
+      border-radius: 50%; }
       .content .record .pin svg {
-        width: 24px;
-        height: 24px;
+        margin: 8px;
+        width: 16px;
+        height: 16px;
         color: "#FFFFFF";
         fill: "#FFFFFF"; }
+    .content .record .data {
+      display: inline-block;
+      vertical-align: top;
+      border-radius: 4px;
+      background: #22272d;
+      -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.56);
+      -moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.56);
+      -ms-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.56);
+      -o-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.56);
+      box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.56);
+      color: rgba(255, 255, 255, 0.56);
+      width: calc(100% - 64px);
+      margin-top: 12px;
+      margin-left: 16px;
+      position: relative;
+      z-index: 1; }
+      .content .record .data .datetime {
+        background-color: #63aa10;
+        float: left;
+        height: 100%;
+        padding: 8px;
+        border-radius: 0px 0px 0px 4px;
+        padding-top: 9.6px; }
+        .content .record .data .datetime .date {
+          font-size: 0.8rem;
+          width: 65px;
+          text-align: center;
+          line-height: 1rem; }
+        .content .record .data .datetime .time {
+          width: 100%;
+          text-align: center;
+          margin-top: 2px; }
+      .content .record .data .stats {
+        float: left;
+        max-width: calc(100% - 81px - 94px - 16px);
+        padding: 8px;
+        overflow: auto; }
+        .content .record .data .stats .stat-unit {
+          float: left;
+          margin-right: 16px;
+          color: rgba(255, 255, 255, 0.87); }
+          .content .record .data .stats .stat-unit .text {
+            color: rgba(255, 255, 255, 0.56);
+            margin-left: 2px; }
+      .content .record .data .controls {
+        float: right;
+        border-left: 1px solid rgba(255, 255, 255, 0.14);
+        padding-left: 4px;
+        padding-right: 4px;
+        height: 100%;
+        position: absolute;
+        right: 0; }
+        .content .record .data .controls a {
+          display: inline-block;
+          padding: 8px;
+          width: 24px;
+          height: 24px;
+          font-size: 1.3rem;
+          text-align: center;
+          color: rgba(255, 255, 255, 0.56);
+          margin-top: calc(50% - 28px); }
+        .content .record .data .controls a:hover {
+          border-radius: 50%;
+          background-color: rgba(255, 255, 255, 0.14); }
+        .content .record .data .controls a:active {
+          border-radius: 50%;
+          background-color: rgba(0, 0, 0, 0.56); }
+    .content .record .data:before {
+      content: "";
+      width: 0px;
+      height: 0px;
+      border: 16px solid transparent;
+      position: absolute;
+      left: -23px;
+      top: 0;
+      border-right: 16px solid #63aa10;
+      border-top: 16px solid #63aa10;
+      z-index: 1; }
+    .content .record .data:after {
+      content: "";
+      width: 0px;
+      height: 0px;
+      border: 11px solid transparent;
+      position: absolute;
+      left: -23px;
+      top: 2px;
+      border-right: 11px solid rgba(0, 0, 0, 0.28);
+      border-top: 11px solid rgba(0, 0, 0, 0.28);
+      z-index: 0; }
 
+@media screen and (max-width: 20em) {
+  .content .record .data {
+    width: calc(100% - 54px);
+    margin-left: 6.4px; }
+    .content .record .data .stats {
+      float: left;
+      max-width: calc(100% - 81px - 49px - 16px);
+      padding: 8px;
+      overflow: auto;
+      font-size: 0.9rem; }
+      .content .record .data .stats .stat-unit {
+        float: left;
+        margin-right: 4px;
+        color: rgba(255, 255, 255, 0.87);
+        margin-bottom: 2px; }
+        .content .record .data .stats .stat-unit .text {
+          color: rgba(255, 255, 255, 0.56);
+          margin-left: 2px; }
+    .content .record .data .controls {
+      padding-top: 2.66667px; }
+      .content .record .data .controls a {
+        display: block;
+        padding: 8px;
+        width: 16px;
+        height: 16px;
+        font-size: 1.04rem;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.56);
+        margin-top: 0;
+        line-height: 1.04rem;
+        vertical-align: top; }
+  .content .record .data:before {
+    border: 8px solid transparent;
+    left: -16px;
+    border-right: 8px solid #63aa10;
+    border-top: 8px solid #63aa10; }
+  .content .record .data:after {
+    border: 8px solid transparent;
+    left: -16px;
+    border-right: 8px solid rgba(0, 0, 0, 0.28);
+    border-top: 8px solid rgba(0, 0, 0, 0.28); } }
+@media screen and (min-width: 40.5em) {
+  .content {
+    background: url("../images/line.svg") repeat-y;
+    background-size: 4px 4px;
+    background-position: 32px 0;
+    padding-top: 84px; }
+    .content .record {
+      padding: 4px;
+      margin-left: 10px; }
+      .content .record .pin {
+        display: inline-block;
+        vertical-align: top;
+        width: 40px;
+        height: 40px;
+        background-color: #545c64;
+        border-radius: 50%; }
+        .content .record .pin svg {
+          margin: 8px;
+          width: 24px;
+          height: 24px;
+          color: "#FFFFFF";
+          fill: "#FFFFFF"; }
+      .content .record .data {
+        width: calc(100% - 88px);
+        margin-top: 16px;
+        margin-left: 24px; }
+        .content .record .data .datetime {
+          padding-top: 12.8px; }
+          .content .record .data .datetime .date {
+            font-size: 0.8rem;
+            width: 90px; }
+          .content .record .data .datetime .time {
+            font-size: 1.1rem;
+            margin-top: 4px; }
+        .content .record .data .stats {
+          max-width: calc(100% - 101px - 94px - 48px);
+          padding: 16px;
+          font-size: 1rem;
+          line-height: 1.9rem; }
+          .content .record .data .stats .stat-unit {
+            float: left;
+            margin-right: 16px;
+            color: rgba(255, 255, 255, 0.87); }
+            .content .record .data .stats .stat-unit .text {
+              color: rgba(255, 255, 255, 0.56);
+              margin-left: 2px; }
+        .content .record .data .controls {
+          float: right;
+          border-left: 1px solid rgba(255, 255, 255, 0.14);
+          padding-left: 4px;
+          padding-right: 4px;
+          height: 100%;
+          position: absolute;
+          right: 0; }
+          .content .record .data .controls a {
+            margin-top: calc(50% - 36px);
+            margin-left: 4px;
+            margin-right: 4px; }
+      .content .record .data:before {
+        content: "";
+        width: 0px;
+        height: 0px;
+        border: 16px solid transparent;
+        position: absolute;
+        left: -23px;
+        top: 0;
+        border-right: 16px solid #63aa10;
+        border-top: 16px solid #63aa10;
+        z-index: 1; }
+      .content .record .data:after {
+        content: "";
+        width: 0px;
+        height: 0px;
+        border: 11px solid transparent;
+        position: absolute;
+        left: -23px;
+        top: 2px;
+        border-right: 11px solid rgba(0, 0, 0, 0.28);
+        border-top: 11px solid rgba(0, 0, 0, 0.28);
+        z-index: 0; } }
+@media screen and (min-width: 46em) {
+  .content .record .data .datetime {
+    padding-top: 12.8px; }
+    .content .record .data .datetime .date {
+      font-size: 0.95rem;
+      width: 120px; }
+    .content .record .data .datetime .time {
+      font-size: 1.3rem;
+      margin-top: 4px; }
+  .content .record .data .stats {
+    max-width: calc(100% - 131px - 94px - 48px);
+    font-size: 1.2rem; } }
 .card {
   background-color: #dcdee0; }
 
@@ -325,11 +558,16 @@ a {
     vertical-align: middle;
     display: inline-block; }
   .error-popup .text {
-    width: 84%; }
+    width: 80%; }
   .error-popup .close {
     text-transform: uppercase;
     text-aligh: right; }
 
+@media screen and (max-width: 20em) {
+  .error-popup .text {
+    width: 76%; }
+  .error-popup .close {
+    margin-right: 8px; } }
 .form-buttons {
   margin-top: 16px;
   float: right; }
